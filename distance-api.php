@@ -77,7 +77,7 @@
 		if(!$origin || !is_object($origin))
 			Error("Invalid Origin Coordinates");
 		else if(!is_array($_REQUEST['routes']))
-			Error("Routes must be an Array");
+			Error("`routes` parameter must be an Array");
 		
 		$routes = array();
 		foreach($_REQUEST['routes'] as $r)
@@ -96,3 +96,7 @@
 		
 		Success( $result );
 	}
+	else if(!isset($_REQUEST['origin']))
+		Error("origin is required!");
+	else if(!isset($_REQUEST['routes']))
+		Error("routes parameter is missing");
